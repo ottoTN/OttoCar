@@ -1,0 +1,43 @@
+garage_compte:
+    resource: "@GarageBundle/Resources/config/routing/compte.php"
+    prefix:   /compte
+    
+garage_employe:
+    resource: "@GarageBundle/Resources/config/routing/employe.php"
+    prefix:   /employe
+    
+garage_facture:
+    resource: "@GarageBundle/Resources/config/routing/facture.php"
+    prefix:   /facture
+    
+garage_fiche:
+    resource: "@GarageBundle/Resources/config/routing/fiche.php"
+    prefix:   /fiche
+    
+garage_fournisseur:
+    resource: "@GarageBundle/Resources/config/routing/fournisseur.php"
+    prefix:   /fournisseur
+    
+garage_notification:
+    resource: "@GarageBundle/Resources/config/routing/notification.php"
+    prefix:   /notification
+
+garage_piece:
+    resource: "@GarageBundle/Resources/config/routing/piece.php"
+    prefix:   /piece
+    
+garage_rapport:
+    resource: "@GarageBundle/Resources/config/routing/rapport.php"
+    prefix:   /rapport
+    
+garage_stock:
+    resource: "@GarageBundle/Resources/config/routing/stock.php"
+    prefix:   /stock
+    
+garage_utilisateur:
+    resource: "@GarageBundle/Resources/config/routing/utilisateur.php"
+    prefix:   /utilisateur
+    
+garage_homepage:
+    path:     /Garage/hello
+    defaults: { _controller: GarageBundle:Default:index }

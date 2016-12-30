@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="fa fa-id-card-o"></i></span>
+            <h5>All Accounts</h5>
+             <div style="padding-top: 0.2%"><a class="btn btn-info"  href="createCompteReceptionnist.html"><i class="fa fa-plus-circle"></i></a></div>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordere data-table">
+              <thead>
+                <th>Nomprop</th>
+                <td>{{ compte.nomprop }}</td>
+            </tr>
+            <tr>
+                <th>Prenomprop</th>
+                <td>{{ compte.prenomprop }}</td>
+            </tr>
+            <tr>
+                <th>Telprop</th>
+                <td>{{ compte.telprop }}</td>
+            </tr>
+            <tr>
+                <th>Adresseprop</th>
+                <td>{{ compte.adresseprop }}</td>
+            </tr>
+            <tr>
+                <th>Mailprop</th>
+                <td>{{ compte.mailprop }}</td>
+            </tr>
+            <tr>
+                <th>Modelevoit</th>
+                <td>{{ compte.modelevoit }}</td>
+            </tr>
+            <tr>
+                <th>Marquevoit</th>
+                <td>{{ compte.marquevoit }}</td>
+            </tr>
+            <tr>
+                <th>Immatvoit</th>
+                <td>{{ compte.immatvoit }}</td>
+            </tr>
+            <tr>
+                <th>Cinprop</th>
+                <td>{{ compte.cinprop }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ compte.id }}</td>
+            </tr>
+        </tbody>
+            </table>
+          </div>
+    </div>
+    <ul>
+        <li>
+            <a href="{{ path('compte_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('compte_edit', { 'id': compte.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
+
+

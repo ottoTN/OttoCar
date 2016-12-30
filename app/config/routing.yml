@@ -1,0 +1,11 @@
+garage_compte:
+    resource: "@GarageBundle/Controller/CompteController.php"
+    type:     annotation
+
+garage:
+    resource: "@GarageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

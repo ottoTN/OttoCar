@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="widget-box">
+          <div class="widget-title"><span class="icon"><i class="fa fa-wrench"></i></span>
+            <h5>All Parts</h5>
+            <div style="padding-top: 0.2%"><a class="btn btn-info"  href="{{ path('piece_new') }}"><i class="fa fa-plus-circle"></i></a></div>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered data-table">
+              <thead>
+                <tr>
+                  <th>Reference</th>
+                  <th>Brand</th>
+                  <th>Price (TND)</th>
+                  <th>Type</th>
+                  <th>Part Wording</th>
+                  <th>Available (Yes/No)</th>
+                </tr>
+              </thead>
+        <tbody>
+        {% for piece in pieces %}
+            <tr>
+                <td>{{ piece.refpiece }}</a></td>
+                <td>{{ piece.marquepiece }}</td>
+                <td>{{ piece.prixpiece }}</td>
+                <td>{{ piece.typepiece }}</td>
+                <td>{{ piece.libellepiece }}</td>
+                <td><button type="button" class="btn btn-success" disabled><i class="fa fa-check"></i></button> <button type="button" class="btn btn-danger" disabled><i class="fa fa-times"></i></button></td>
+               <!--  <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('piece_show', { 'id': piece.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('piece_edit', { 'id': piece.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td> -->
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div></div>
+{% endblock %}

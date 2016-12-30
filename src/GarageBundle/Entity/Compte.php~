@@ -1,0 +1,89 @@
+<?php
+
+namespace GarageBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Compte
+ *
+ * @ORM\Table(name="compte")
+ * @ORM\Entity
+ */
+class Compte
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomprop", type="string", length=20, nullable=false)
+     */
+    private $nomprop;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenomprop", type="string", length=20, nullable=false)
+     */
+    private $prenomprop;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="telprop", type="bigint", nullable=false)
+     */
+    private $telprop;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresseprop", type="string", length=100, nullable=false)
+     */
+    private $adresseprop;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mailprop", type="string", length=50, nullable=false)
+     */
+    private $mailprop;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modelevoit", type="string", length=50, nullable=false)
+     */
+    private $modelevoit;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="marquevoit", type="string", length=50, nullable=false)
+     */
+    private $marquevoit;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="immatvoit", type="string", length=30, nullable=false)
+     */
+    private $immatvoit;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cinprop", type="bigint", nullable=false)
+     */
+    private $cinprop;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idcompte", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcompte;
+
+
+}
+

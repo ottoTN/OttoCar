@@ -1,0 +1,95 @@
+<?php
+
+namespace GarageBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Stock
+ *
+ * @ORM\Table(name="stock", indexes={@ORM\Index(name="Pieces", columns={"Pieces"})})
+ * @ORM\Entity
+ */
+class Stock
+{
+     /**
+   * @ORM\OneToMany(targetEntity="GarageBundle\Entity\Piece", cascade={"persist"})
+   */
+    private $Pieces;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantite", type="integer", nullable=false)
+     */
+    private $quantite;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idstock", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idstock;
+
+
+
+    /**
+     * Set Pieces
+     *
+     * @param integer $Pieces
+     *
+     * @return Stock
+     */
+    public function setPieces($Pieces)
+    {
+        $this->Pieces = $Pieces;
+
+        return $this;
+    }
+
+    /**
+     * Get Pieces
+     *
+     * @return integer
+     */
+    public function getPieces()
+    {
+        return $this->Pieces;
+    }
+
+    /**
+     * Set quantite
+     *
+     * @param integer $quantite
+     *
+     * @return Stock
+     */
+    public function setQuantite($quantite)
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    /**
+     * Get quantite
+     *
+     * @return integer
+     */
+    public function getQuantite()
+    {
+        return $this->quantite;
+    }
+
+    /**
+     * Get idstock
+     *
+     * @return integer
+     */
+    public function getIdstock()
+    {
+        return $this->idstock;
+    }
+}

@@ -1,0 +1,188 @@
+<?php
+
+namespace GarageBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Facture
+ *
+ * @ORM\Table(name="facture", indexes={@ORM\Index(name="Fiche", columns={"Fiche"}), @ORM\Index(name="Rapport", columns={"Rapport"}),  @ORM\Index(name="Pieces", columns={"Pieces"})})
+ * @ORM\Entity
+ */
+class Facture
+{
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="tariffacture", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $tariffacture;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="statutfacture", type="string", length=10, nullable=false)
+     */
+    private $statutfacture;
+
+    /**
+   * @ORM\OneToOne(targetEntity="GarageBundle\Entity\Fiche", cascade={"persist"})
+   */
+
+    private $Fiche;
+
+     /**
+   * @ORM\ManyToOne(targetEntity="GarageBundle\Entity\Rapport", cascade={"persist"})
+   */
+    private $Rapport;
+
+     /**
+   * @ORM\ManyToMany(targetEntity="GarageBundle\Entity\Piece", cascade={"persist"})
+   */
+    private $Pieces;
+
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idfacture", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idfacture;
+
+
+
+    /**
+     * Set tariffacture
+     *
+     * @param float $tariffacture
+     *
+     * @return Facture
+     */
+    public function setTariffacture($tariffacture)
+    {
+        $this->tariffacture = $tariffacture;
+
+        return $this;
+    }
+
+    /**
+     * Get tariffacture
+     *
+     * @return float
+     */
+    public function getTariffacture()
+    {
+        return $this->tariffacture;
+    }
+
+    /**
+     * Set statutfacture
+     *
+     * @param string $statutfacture
+     *
+     * @return Facture
+     */
+    public function setStatutfacture($statutfacture)
+    {
+        $this->statutfacture = $statutfacture;
+
+        return $this;
+    }
+
+    /**
+     * Get statutfacture
+     *
+     * @return string
+     */
+    public function getStatutfacture()
+    {
+        return $this->statutfacture;
+    }
+
+    /**
+     * Set Fiche
+     *
+     * @param integer $Fiche
+     *
+     * @return Facture
+     */
+    public function setFiche($Fiche)
+    {
+        $this->fiche = $Fiche;
+
+        return $this;
+    }
+
+    /**
+     * Get Fiche
+     *
+     * @return integer
+     */
+    public function getFiche()
+    {
+        return $this->Fiche;
+    }
+
+    /**
+     * Set Rapport
+     *
+     * @param integer $Rapport
+     *
+     * @return Facture
+     */
+    public function setRapport($Rapport)
+    {
+        $this->Rapport = $Rapport;
+
+        return $this;
+    }
+
+    /**
+     * Get Rapport
+     *
+     * @return integer
+     */
+    public function getRapport()
+    {
+        return $this->Rapport;
+    }
+    
+    
+    /**
+     * Set Pieces
+     *
+     * @param integer $Pieces
+     *
+     * @return Facture
+     */
+    public function setPieces($Pieces)
+    {
+        $this->Pieces = $Pieces;
+
+        return $this;
+    }
+
+    /**
+     * Get Pieces
+     *
+     * @return integer
+     */
+    public function getPieces()
+    {
+        return $this->Pieces;
+    }
+    
+
+    /**
+     * Get idfacture
+     *
+     * @return integer
+     */
+    public function getIdfacture()
+    {
+        return $this->idfacture;
+    }
+}

@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row-fluid centre">
+        <div class="span10">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"> <i class="fa fa-file-o"></i> </span>
+                    <h5>New Client</h5>
+                </div>
+                <div class="widget-content nopadding">
+<br>
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}},{'attr': {'id': 'basic-validate'}},{'attr': {'name' : 'basic-validate'}},{'attr':{'novalidate':'novalidate'}} ) }}
+        
+        <div class="control-group">
+                            {{ form_label(form.cinprop, "C.I.N", {'label_attr': {'class': 'control-label'}}) }}
+                            <div class="controls">
+                              {{ form_widget(form.cinprop, {'attr': {'class': 'cin'}}) }}
+                            </div>
+                          </div>
+
+                           <div class="control-group">
+                            <label class="control-label">First name :</label>
+                            <div class="controls">
+                                {{ form_widget(form.prenomprop, {'attr': {'class' : 'span6'}},{'attr':{'placeholder': 'First name'} } ) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Last name :</label>
+                            <div class="controls">
+                                
+                                {{ form_widget(form.nomprop, {'attr': {'class' : 'span6'}},{'attr':{'placeholder': 'Last name'} } ) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Phone :</label>
+                            <div class="controls">
+                                
+                                {{ form_widget(form.telprop, {'attr': {'class' : 'mask-phone span2 mask text '}},{'attr':{'placeholder': '22 33 66 44'}},{'attr':{'id' : 'mask-phone'} } ) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Address :</label>
+                            <div class="controls">
+                                
+                                {{ form_widget(form.adresseprop, {'attr': {'class' : 'span11'}},{'attr':{'placeholder': '0 Street New York City'} } ) }}
+                            </div>
+                        </div>
+                          <div class="control-group">
+                            <label class="control-label">Email :</label>
+                            <div class="controls">
+                              {{ form_widget(form.mailprop, {'attr': {'class' : 'span8 email'}},{'attr':{'placeholder': 'example example.com'  }},{'attr':{'id': 'email'}},{'attr': {'name': 'email'} } ) }}
+                            </div>
+                          </div>
+                        <div class="control-group">
+                            <label class="control-label">Car brand :</label>
+                            <div class="controls">
+                                
+                                {{ form_widget(form.modelevoit, {'attr': {'class' : 'span6'} }) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Car version :</label>
+                            <div class="controls">
+                                {{ form_widget(form.marquevoit, {'attr': {'class' : 'span6'} } ) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Plate License :</label>
+                            <div class="controls">
+                                {{ form_widget(form.immatvoit, {'attr': {'class' : 'span6 mask-plate'}},{'attr':{'placeholder': 'Plate Number'}},{'attr':{'id': 'mask-plate'} } ) }}
+                            </div>
+                        </div>
+
+        <input type="submit" class="btn btn-success" value="Create" />
+    {{ form_end(form) }}
+
+<br>
+        
+
+
+</div></div></div>
+
+
+{% endblock %}
+

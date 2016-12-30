@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Rapports list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Daterapport</th>
+                <th>Totalrapport</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rapport in rapports %}
+            <tr>
+                <td>{{ rapport.daterapport|date('d/m/Y') }}</td>
+                <td>{{ rapport.totalrapport }}</td>
+                <td>{{ rapport.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('rapport_show', { 'id': rapport.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('rapport_edit', { 'id': rapport.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('rapport_new') }}">Create a new rapport</a>
+        </li>
+    </ul>
+{% endblock %}

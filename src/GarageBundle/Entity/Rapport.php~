@@ -1,0 +1,128 @@
+<?php
+
+namespace GarageBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Rapport
+ *
+ * @ORM\Table(name="rapport")
+ * @ORM\Entity
+ */
+class Rapport
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="daterapport", type="integer", nullable=false)
+     */
+    private $daterapport;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="totalrapport", type="integer", nullable=false)
+     */
+    private $totalrapport;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idrapport", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idrapport;
+    
+        /**
+   * @ORM\OneToMany(targetEntity="GarageBundle\Entity\Facture", cascade={"persist"})
+   */
+    private $Factures;
+
+
+
+    /**
+     * Set daterapport
+     *
+     * @param integer $daterapport
+     *
+     * @return Rapport
+     */
+    public function setDaterapport($daterapport)
+    {
+        $this->daterapport = $daterapport;
+
+        return $this;
+    }
+
+    /**
+     * Get daterapport
+     *
+     * @return integer
+     */
+    public function getDaterapport()
+    {
+        return $this->daterapport;
+    }
+
+    /**
+     * Set totalrapport
+     *
+     * @param integer $totalrapport
+     *
+     * @return Rapport
+     */
+    public function setTotalrapport($totalrapport)
+    {
+        $this->totalrapport = $totalrapport;
+
+        return $this;
+    }
+
+    /**
+     * Get totalrapport
+     *
+     * @return integer
+     */
+    public function getTotalrapport()
+    {
+        return $this->totalrapport;
+    }
+
+    /**
+     * Set Factures
+     *
+     * @param integer Factures
+     *
+     * @return Rapport
+     */
+    public function setFactures($Factures)
+    {
+        $this->Factures = $Factures;
+
+        return $this;
+    }
+
+    /**
+     * Get Factures
+     *
+     * @return integer
+     */
+    public function getFactures()
+    {
+        return $this->Factures;
+    }
+    
+    /**
+     * Get idrapport
+     *
+     * @return integer
+     */
+    public function getIdrapport()
+    {
+        return $this->idrapport;
+    }
+    
+    
+}

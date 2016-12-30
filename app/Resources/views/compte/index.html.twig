@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+  <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="fa fa-id-card-o"></i></span>
+            <h5>All Accounts</h5>
+             <div style="padding-top: 0.2%"><a class="btn btn-info"  href="{{ path('compte_new') }}"><i class="fa fa-plus-circle"></i></a></div>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordere data-table">
+        <thead>
+            <tr>
+                <th>C.I.N</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Phone</th>
+                  <th>Adress</th>
+                  <th>Email Adress</th>
+                  <th>Car Brand</th>
+                  <th>Car Version</th>
+                  <th>Plate License</th>
+                  <th>Manage</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compte in comptes %}
+            <tr>
+                 <td> {{ compte.cinprop }} </td>
+                <td> {{ compte.prenomprop }} </td>
+                <td> {{ compte.nomprop }} </td>
+                <td> {{ compte.telprop }} </td>
+                <td> {{ compte.adresseprop }} </td>
+                <td> {{ compte.mailprop }}</td>
+                <td>  {{ compte.modelevoit }} </td>
+                <td>  {{ compte.marquevoit }} </td>
+                <td>  {{ compte.immatvoit }}</td>
+                <td>
+                <a class="btn btn-warning" href="{{ path('compte_edit', { 'id': compte.id }) }}">Edit</a>
+                    <!-- <ul>
+                        <li>
+                            <a href="{{ path('compte_show', { 'id': compte.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('compte_edit', { 'id': compte.id }) }}">edit</a>
+                        </li>
+                    </ul> -->
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+            </table>
+          </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,96 @@
+<?php
+
+namespace GarageBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Employe
+ *
+ * @ORM\Table(name="employe")
+ * @ORM\Entity
+ */
+class Employe
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cinemp", type="bigint", nullable=false)
+     */
+    private $cinemp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomemp", type="string", length=20, nullable=false)
+     */
+    private $nomemp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenomemp", type="string", length=20, nullable=false)
+     */
+    private $prenomemp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="statutsoc", type="string", length=20, nullable=false)
+     */
+    private $statutsoc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresseemp", type="string", length=100, nullable=false)
+     */
+    private $adresseemp;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datenaissemp", type="date", nullable=false)
+     */
+    private $datenaissemp;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="telemp", type="bigint", nullable=false)
+     */
+    private $telemp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="typeemp", type="string", length=10, nullable=false)
+     */
+    private $typeemp;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="salaire", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $salaire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="statutemp", type="string", length=10, nullable=true)
+     */
+    private $statutemp;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idemp", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idemp;
+
+
+}
+

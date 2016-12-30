@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Rapport</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Daterapport</th>
+                <td>{{ rapport.daterapport }}</td>
+            </tr>
+            <tr>
+                <th>Totalrapport</th>
+                <td>{{ rapport.totalrapport }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ rapport.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('rapport_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('rapport_edit', { 'id': rapport.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<!-- Modal -->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+               <h1> WARNING !</h1>
+            </div>
+            <div class="modal-body">
+                <h3>Are you sure you want to delete this Worker ?</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Yes</button>
+                <a data-dismiss="modal" class="btn btn-default btn-ok">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Of Modal -->
+
+<div class="widget-box">
+            <div class="widget-title"> <span class="icon"><i class="fa fa-user"></i></span>
+              <h5>All Employees</h5>
+             <div style="padding-top: 0.2%"><a class="btn btn-info"  href="{{ path('employe_new') }}"><i class="fa fa-plus-circle"></i></a></div>
+          </div>
+          <div class="widget-content nopadding">
+    <table class="table table-bordered data-table">
+        <thead>
+            <tr>
+                 <th>C.I.N</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Social Status</th>
+                  <th>Adress</th>
+                  <th>Date of birth</th>
+                  <th>Phone</th>
+                  <th>Type</th>
+                  <th>Salary</th>
+                  <th>Manage</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employe in employes %}
+            <tr>
+                <td>{{ employe.cinemp }}</a></td>
+                <td>{{ employe.nomemp }}</td>
+                <td>{{ employe.prenomemp }}</td>
+                <td>{{ employe.statutsoc }}</td>
+                <td>{{ employe.adresseemp }}</td>
+                <td>{% if employe.datenaissemp %}{{ employe.datenaissemp|date('d/m/Y') }}{% endif %}</td>
+                <td>{{ employe.telemp }}</td>
+                <td>{{ employe.typeemp }}</td>
+                <td>{{ employe.salaire }}</td>
+                <td>
+                <a class="btn btn-warning" href="{{ path('employe_edit', { 'id': employe.id }) }}">Edit</a>
+                <button class="btn btn-danger" data-href="/delete.php?id=54" data-toggle="modal" data-target="#confirm-delete">
+                Delete </button>
+                    <!-- <ul>
+                        <li>
+                            <a href="{{ path('employe_show', { 'id': employe.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('employe_edit', { 'id': employe.id }) }}">edit</a>
+                        </li>
+                    </ul> -->
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+            </table>
+          </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,195 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container">
+   <div class="span12">
+      <div class="panel with-nav-tabs panel-primary">
+         <div class="panel-heading">
+            <ul class="nav nav-tabs">
+               <li class="active"><a href="#tab1primary" data-toggle="tab">Daily</a></li>
+               <li><a href="#tab2primary" data-toggle="tab">Weekly</a></li>
+               <li><a href="#tab3primary" data-toggle="tab">Monthly</a></li>
+               <li><a href="#tab4primary" data-toggle="tab">Yearly</a></li>
+            </ul>
+         </div>
+         <div class="panel-body">
+            <div class="tab-content">
+               <div class="tab-pane fade in active" id="tab1primary">
+                  <div class="container-fluid">
+                     <div class="widget-box">
+                        <div class="widget-title">
+                           <span class="icon"><i class="fa fa-flag-o"></i></span>
+                           <h5>All Reports</h5>
+                           <div style="padding-top: 0.2%"><a class="btn btn-info"  href="{{ path('rapport_new') }}"><i class="fa fa-plus-circle"></i></a></div>
+                        </div>
+                        <div class="widget-content nopadding">
+                           <table class="table table-bordered data-table">
+                              <thead>
+                                 <tr>
+                                    <th>Date</th>
+                                    <th>Turnover</th>
+                                    <th>Invoice</th>
+                                    <th>Document</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 {% for rapport in rapports %}
+                                 <tr>
+                                    <td>{{ rapport.daterapport|date('d/m/Y H:i:s') }}</td>
+                                    <td>{{ rapport.totalrapport }}</td>
+                                    <td><a class="fa fa-eye" href="{{ path('fiche_indexmanager') }}"> Show</a></td>
+                                    <td>Download PDF</td>
+                                    <!-- <td>
+                                       <ul>
+                                           <li>
+                                               <a href="{{ path('rapport_show', { 'id': rapport.id }) }}">show</a>
+                                           </li>
+                                           <li>
+                                               <a href="{{ path('rapport_edit', { 'id': rapport.id }) }}">edit</a>
+                                           </li>
+                                       </ul>
+                                       </td> -->
+                                 </tr>
+                                 {% endfor %}
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-pane fade" id="tab2primary">
+                  <div class="container-fluid">
+                     <div class="widget-box">
+                        <div class="widget-title">
+                           <span class="icon"><i class="fa fa-flag-o"></i></span>
+                           <h5>All Reports</h5>
+                        </div>
+                        <div class="widget-content nopadding">
+                           <table class="table table-bordered data-table">
+                              <thead>
+                                 <tr>
+                                    <th>Date</th>
+                                    <th>Turnover</th>
+                                    <th>Invoice</th>
+                                    <th>Document</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 {% for rapport in rapports %}
+                                 <tr>
+                                    <td>{{ rapport.daterapport|date('d/m/Y H:i:s') }}</td>
+                                    <td>{{ rapport.totalrapport }}</td>
+                                    <td><a class="fa fa-eye" href="{{ path('fiche_indexmanager') }}"> Show</a></td>
+                                    <td>Download PDF</td>
+                                    <!-- <td>
+                                       <ul>
+                                           <li>
+                                               <a href="{{ path('rapport_show', { 'id': rapport.id }) }}">show</a>
+                                           </li>
+                                           <li>
+                                               <a href="{{ path('rapport_edit', { 'id': rapport.id }) }}">edit</a>
+                                           </li>
+                                       </ul>
+                                       </td> -->
+                                 </tr>
+                                 {% endfor %}
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-pane fade" id="tab3primary">
+                  <div class="container-fluid">
+                     <div class="widget-box">
+                        <div class="widget-title">
+                           <span class="icon"><i class="fa fa-flag-o"></i></span>
+                           <h5>All Reports</h5>
+                        </div>
+                        <div class="widget-content nopadding">
+                           <table class="table table-bordered data-table">
+                              <thead>
+                                 <tr>
+                                    <th>Date</th>
+                                    <th>Turnover</th>
+                                    <th>Invoice</th>
+                                    <th>Document</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 {% for rapport in rapports %}
+                                 <tr>
+                                    <td>{{ rapport.daterapport|date('d/m/Y H:i:s') }}</td>
+                                    <td>{{ rapport.totalrapport }}</td>
+                                    <td><a class="fa fa-eye" href="{{ path('fiche_indexmanager') }}"> Show</a></td>
+                                    <td>Download PDF</td>
+                                    <!-- <td>
+                                       <ul>
+                                           <li>
+                                               <a href="{{ path('rapport_show', { 'id': rapport.id }) }}">show</a>
+                                           </li>
+                                           <li>
+                                               <a href="{{ path('rapport_edit', { 'id': rapport.id }) }}">edit</a>
+                                           </li>
+                                       </ul>
+                                       </td> -->
+                                 </tr>
+                                 {% endfor %}
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-pane fade" id="tab4primary">
+                  <div class="container-fluid">
+                     <div class="widget-box">
+                        <div class="widget-title">
+                           <span class="icon"><i class="fa fa-flag-o"></i></span>
+                           <h5>All Reports</h5>
+                        </div>
+                        <div class="widget-content nopadding">
+                           <table class="table table-bordered data-table">
+                              <thead>
+                                 <tr>
+                                    <th>Date</th>
+                                    <th>Turnover</th>
+                                    <th>Invoice</th>
+                                    <th>Document</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 {% for rapport in rapports %}
+                                 <tr>
+                                    <td>{{ rapport.daterapport|date('d/m/Y H:i:s') }}</td>
+                                    <td>{{ rapport.totalrapport }}</td>
+                                    <td><a class="fa fa-eye" href="{{ path('fiche_indexmanager') }}"> Show</a></td>
+                                    <td>Download PDF</td>
+                                    <!-- <td>
+                                       <ul>
+                                           <li>
+                                               <a href="{{ path('rapport_show', { 'id': rapport.id }) }}">show</a>
+                                           </li>
+                                           <li>
+                                               <a href="{{ path('rapport_edit', { 'id': rapport.id }) }}">edit</a>
+                                           </li>
+                                       </ul>
+                                       </td> -->
+                                 </tr>
+                                 {% endfor %}
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- <ul>
+   <li>
+       <a href="{{ path('rapport_new') }}">Create a new rapport</a>
+   </li>
+   </ul> -->
+{% endblock %}

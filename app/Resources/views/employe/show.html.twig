@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Employe</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Cinemp</th>
+                <td>{{ employe.cinemp }}</td>
+            </tr>
+            <tr>
+                <th>Nomemp</th>
+                <td>{{ employe.nomemp }}</td>
+            </tr>
+            <tr>
+                <th>Prenomemp</th>
+                <td>{{ employe.prenomemp }}</td>
+            </tr>
+            <tr>
+                <th>Statutsoc</th>
+                <td>{{ employe.statutsoc }}</td>
+            </tr>
+            <tr>
+                <th>Adresseemp</th>
+                <td>{{ employe.adresseemp }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissemp</th>
+                <td>{% if employe.datenaissemp %}{{ employe.datenaissemp|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Telemp</th>
+                <td>{{ employe.telemp }}</td>
+            </tr>
+            <tr>
+                <th>Typeemp</th>
+                <td>{{ employe.typeemp }}</td>
+            </tr>
+            <tr>
+                <th>Salaire</th>
+                <td>{{ employe.salaire }}</td>
+            </tr>
+            <tr>
+                <th>Statutemp</th>
+                <td>{{ employe.statutemp }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ employe.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('employe_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('employe_edit', { 'id': employe.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
