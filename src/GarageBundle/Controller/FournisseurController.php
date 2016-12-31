@@ -27,6 +27,17 @@ class FournisseurController extends Controller
         ));
     }
 
+    public function indexmanagerAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $fournisseurs = $em->getRepository('GarageBundle:Fournisseur')->findAll();
+
+        return $this->render('fournisseur/index-manager.html.twig', array(
+            'fournisseurs' => $fournisseurs,
+        ));
+    }
+
     /**
      * Creates a new fournisseur entity.
      *

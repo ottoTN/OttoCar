@@ -27,6 +27,29 @@ class CompteController extends Controller
         ));
     }
 
+
+    public function indexmanagerAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $comptes = $em->getRepository('GarageBundle:Compte')->findAll();
+
+        return $this->render('compte/index-manager.html.twig', array(
+            'comptes' => $comptes,
+        ));
+    }
+
+    public function indexreceptionnistAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $comptes = $em->getRepository('GarageBundle:Compte')->findAll();
+
+        return $this->render('compte/index-receptionnist.html.twig', array(
+            'comptes' => $comptes,
+        ));
+    }
+
     /**
      * Creates a new compte entity.
      *

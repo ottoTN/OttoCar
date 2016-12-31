@@ -27,6 +27,17 @@ class UtilisateurController extends Controller
         ));
     }
 
+    public function indexmanagerAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $utilisateurs = $em->getRepository('GarageBundle:Utilisateur')->findAll();
+
+        return $this->render('utilisateur/index-manager.html.twig', array(
+            'utilisateurs' => $utilisateurs,
+        ));
+    }
+
     /**
      * Creates a new utilisateur entity.
      *

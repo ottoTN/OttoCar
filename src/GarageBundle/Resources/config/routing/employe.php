@@ -15,6 +15,16 @@ $collection->add('employe_index', new Route(
     array('GET')
 ));
 
+$collection->add('employe_indexmanager', new Route(
+    '/indexmanager',
+    array('_controller' => 'GarageBundle:Employe:indexmanager'),
+    array(),
+    array(),
+    '',
+    array(),
+    array('GET')
+));
+
 $collection->add('employe_show', new Route(
     '/{id}/show',
     array('_controller' => 'GarageBundle:Employe:show'),

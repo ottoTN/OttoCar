@@ -27,6 +27,17 @@ class EmployeController extends Controller
         ));
     }
 
+    public function indexmanagerAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $employes = $em->getRepository('GarageBundle:Employe')->findAll();
+
+        return $this->render('employe/index-manager.html.twig', array(
+            'employes' => $employes,
+        ));
+    }
+
     /**
      * Creates a new employe entity.
      *

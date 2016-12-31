@@ -15,6 +15,16 @@ $collection->add('utilisateur_index', new Route(
     array('GET')
 ));
 
+$collection->add('utilisateur_indexmanager', new Route(
+    '/indexmanager',
+    array('_controller' => 'GarageBundle:Utilisateur:indexmanager'),
+    array(),
+    array(),
+    '',
+    array(),
+    array('GET')
+));
+
 $collection->add('utilisateur_show', new Route(
     '/{id}/show',
     array('_controller' => 'GarageBundle:Utilisateur:show'),

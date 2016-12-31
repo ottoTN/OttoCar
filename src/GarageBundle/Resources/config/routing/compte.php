@@ -15,6 +15,26 @@ $collection->add('compte_index', new Route(
     array('GET')
 ));
 
+$collection->add('compte_indexmanager', new Route(
+    '/indexmanager',
+    array('_controller' => 'GarageBundle:Compte:indexmanager'),
+    array(),
+    array(),
+    '',
+    array(),
+    array('GET')
+));
+
+$collection->add('compte_indexreceptionnist', new Route(
+    '/indexreceptionnist',
+    array('_controller' => 'GarageBundle:Compte:indexreceptionnist'),
+    array(),
+    array(),
+    '',
+    array(),
+    array('GET')
+));
+
 $collection->add('compte_show', new Route(
     '/{id}/show',
     array('_controller' => 'GarageBundle:Compte:show'),

@@ -121,6 +121,31 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
             not_compte_index:
 
+            if (0 === strpos($pathinfo, '/compte/index')) {
+                // compte_indexmanager
+                if ($pathinfo === '/compte/indexmanager') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_compte_indexmanager;
+                    }
+
+                    return array (  '_controller' => 'GarageBundle\\Controller\\CompteController::indexmanagerAction',  '_route' => 'compte_indexmanager',);
+                }
+                not_compte_indexmanager:
+
+                // compte_indexreceptionnist
+                if ($pathinfo === '/compte/indexreceptionnist') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_compte_indexreceptionnist;
+                    }
+
+                    return array (  '_controller' => 'GarageBundle\\Controller\\CompteController::indexreceptionnistAction',  '_route' => 'compte_indexreceptionnist',);
+                }
+                not_compte_indexreceptionnist:
+
+            }
+
             // compte_show
             if (preg_match('#^/compte/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
                 if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
@@ -182,6 +207,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'GarageBundle\\Controller\\EmployeController::indexAction',  '_route' => 'employe_index',);
             }
             not_employe_index:
+
+            // employe_indexmanager
+            if ($pathinfo === '/employe/indexmanager') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_employe_indexmanager;
+                }
+
+                return array (  '_controller' => 'GarageBundle\\Controller\\EmployeController::indexmanagerAction',  '_route' => 'employe_indexmanager',);
+            }
+            not_employe_indexmanager:
 
             // employe_show
             if (preg_match('#^/employe/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
@@ -416,6 +452,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     return array (  '_controller' => 'GarageBundle\\Controller\\FournisseurController::indexAction',  '_route' => 'fournisseur_index',);
                 }
                 not_fournisseur_index:
+
+                // fournisseur_indexmanager
+                if ($pathinfo === '/fournisseur/indexmanager') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_fournisseur_indexmanager;
+                    }
+
+                    return array (  '_controller' => 'GarageBundle\\Controller\\FournisseurController::indexmanagerAction',  '_route' => 'fournisseur_indexmanager',);
+                }
+                not_fournisseur_indexmanager:
 
                 // fournisseur_show
                 if (preg_match('#^/fournisseur/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
@@ -778,6 +825,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'GarageBundle\\Controller\\UtilisateurController::indexAction',  '_route' => 'utilisateur_index',);
             }
             not_utilisateur_index:
+
+            // utilisateur_indexmanager
+            if ($pathinfo === '/utilisateur/indexmanager') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_utilisateur_indexmanager;
+                }
+
+                return array (  '_controller' => 'GarageBundle\\Controller\\UtilisateurController::indexmanagerAction',  '_route' => 'utilisateur_indexmanager',);
+            }
+            not_utilisateur_indexmanager:
 
             // utilisateur_show
             if (preg_match('#^/utilisateur/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {

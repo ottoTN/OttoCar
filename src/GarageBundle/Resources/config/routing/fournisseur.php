@@ -15,6 +15,16 @@ $collection->add('fournisseur_index', new Route(
     array('GET')
 ));
 
+$collection->add('fournisseur_indexmanager', new Route(
+    '/indexmanager',
+    array('_controller' => 'GarageBundle:Fournisseur:indexmanager'),
+    array(),
+    array(),
+    '',
+    array(),
+    array('GET')
+));
+
 $collection->add('fournisseur_show', new Route(
     '/{id}/show',
     array('_controller' => 'GarageBundle:Fournisseur:show'),
