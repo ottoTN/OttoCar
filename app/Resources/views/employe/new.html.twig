@@ -2,10 +2,76 @@
 
 {% block body %}
     <h1>Employe creation</h1>
+<div class="row-fluid centre">
+        <div class="span10">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"> <i class="fa fa-user"></i> </span>
+                    <h5>New Employee</h5>
+                </div>
+                <div class="widget-content nopadding">
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+        <div class="control-group">
+                            <label class="control-label">C.I.N :</label>
+                            <div class="controls">
+                              {{ form_widget(form.cinemp, {'attr': {'class': 'span6' , 'id':'cin'}}) }}
+                            </div>
+                          </div>
+                        <div class="control-group">
+                            <label class="control-label">First name :</label>
+                            <div class="controls">
+                                {{ form_widget(form.nomemp, {'attr': {'class': 'span6'}}) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Last name :</label>
+                            <div class="controls">
+                                {{ form_widget(form.prenomemp, {'attr': {'class': 'span6'}}) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                          <label class="control-label">Social Status :</label>
+                          <div class="controls">
+                          {{ form_widget(form.statutsoc, {'attr': {'class': 'span6'}}) }}<br>
+                          </div>
+                          </div>
+                        <div class="control-group">
+                            <label class="control-label">Address :</label>
+                            <div class="controls">
+                                {{ form_widget(form.adresseemp, {'attr': {'class': 'span6'}}) }}
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label for="normal" class="control-label">Date Of Birth :</label>
+                          <div class="controls">
+                            {{ form_widget(form.datenaissemp, {'attr': {'class': 'span2', 'style': 'display: inline-flex;'}}) }}
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label class="control-label">Phone :</label>
+                            <div class="controls">
+                                {{ form_widget(form.telemp, {'attr': {'class': 'span6'}}) }}
+                            </div>
+                        </div>  
+                        <div class="control-group">
+                          <label class="control-label">Specialty (Type) :</label>
+                          <div class="controls">
+                            {{ form_widget(form.typeemp, {'attr': {'class': 'span6'}}) }}<br> 
+                            </div>
+                            </div>
+                        <div class="control-group">
+                          <label class="control-label">Salary :</label>
+                          <div class="controls">
+                            <div class="input-append">
+                              {{ form_widget(form.salaire, {'attr': {'class': 'span6'}}) }}
+                              <span class="add-on">TND</span> </div>
+                          </div>
+                        </div> 
+
+
+        <center><input type="submit" class="btn btn-success" value="Create" /></center>
     {{ form_end(form) }}
 
     <ul>
