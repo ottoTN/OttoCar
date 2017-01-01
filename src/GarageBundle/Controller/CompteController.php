@@ -16,7 +16,7 @@ class CompteController extends Controller
      * Lists all compte entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -65,7 +65,7 @@ class CompteController extends Controller
             $em->persist($compte);
             $em->flush($compte);
 
-            return $this->redirectToRoute('compte_show', array('id' => $compte->getId()));
+            return $this->redirectToRoute('compte_index');
         }
 
         return $this->render('compte/new.html.twig', array(

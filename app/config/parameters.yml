@@ -16,5 +16,5 @@ parameters:
     database_port:      3306
     database_name:      garagedb
     database_user:      root
-    database_password:  null
+    database_password:  root
     secret: 8d60bfc34b538ad2227fbd4b73b040e0501dfc23

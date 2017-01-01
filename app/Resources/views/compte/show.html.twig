@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+
 
 {% block body %}
-
+<div class="row-fluid centre">
+        <div class="span10">
   <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="fa fa-id-card-o"></i></span>
-            <h5>All Accounts</h5>
-             <div style="padding-top: 0.2%"><a class="btn btn-info"  href="createCompteReceptionnist.html"><i class="fa fa-plus-circle"></i></a></div>
+            <h5>Delete Account</h5>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordere data-table">
@@ -53,19 +53,12 @@
             </table>
           </div>
     </div>
-    <ul>
-        <li>
-            <a href="{{ path('compte_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('compte_edit', { 'id': compte.id }) }}">Edit</a>
-        </li>
-        <li>
+
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Delete" data-dismiss="modal">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+</div>
+</div>
 {% endblock %}
 
 

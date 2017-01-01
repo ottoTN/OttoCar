@@ -1,21 +1,116 @@
-{% extends 'base.html.twig' %}
+
 
 {% block body %}
-    <h1>Compte edit</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+<div class="row-fluid centre">
+        <div class="span10">
+<div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="fa fa-id-card-o"></i></span>
+            <h5>Edit Account</h5>
+            
+          </div>
+          <div class="widget-content nopadding">
+    {{ form_start(edit_form,{'attr': {'class': 'form-horizontal'}}) }}
+         <div class="control-group">
+                            {{ form_label(edit_form.cinprop, "C.I.N", {'label_attr': {'class': 'control-label'}}) }}
+                            <div class="controls">
+                              {{ form_widget(edit_form.cinprop, {'attr': {'class': 'cin'}}) }}
+                            </div>
+                          </div>
+
+                           <div class="control-group">
+                            <label class="control-label">First name :</label>
+                            <div class="controls">
+                                {{ form_widget(edit_form.prenomprop, {'attr': {'class' : 'span6','placeholder': 'First name'} } ) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Last name :</label>
+                            <div class="controls">
+                                
+                                {{ form_widget(edit_form.nomprop, {'attr': {'class' : 'span6','placeholder': 'Last name'} } ) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Phone :</label>
+                            <div class="controls">
+                                
+                                {{ form_widget(edit_form.telprop, {'attr': {'class' : 'mask-phone span2 mask text ','placeholder': '22 33 66 44','id' : 'mask-phone'} } ) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Address :</label>
+                            <div class="controls">
+                                
+                                {{ form_widget(edit_form.adresseprop, {'attr': {'class' : 'span11','placeholder': '0 Street New York City'} } ) }}
+                            </div>
+                        </div>
+                          <div class="control-group">
+                            <label class="control-label">Email :</label>
+                            <div class="controls">
+                              {{ form_widget(edit_form.mailprop, {'attr': {'class' : 'span8 email','placeholder': 'example example.com' ,'id': 'email','name': 'email'} } ) }}
+                            </div>
+                          </div>
+                        <div class="control-group">
+                            <label class="control-label">Car brand :</label>
+                            <div class="controls">
+                                <select id="cars" required></select>
+                                
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Car version :</label>
+                            <div class="controls">
+                                <select id="versions" required></select>
+                                
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Plate License :</label>
+                            <div class="controls">
+                                {{ form_widget(edit_form.immatvoit, {'attr': {'class' : 'span6 mask-plate'}},{'attr':{'placeholder': 'Plate Number'}},{'attr':{'id': 'mask-plate'} } ) }}
+                            </div>
+                        </div>
+
+        <input type="submit" class="btn btn-success" value="Edit" data-dismiss="modal" />
     {{ form_end(edit_form) }}
+</div>
+</div>
+</div>
+</div>
+{% block javascripts %}
+<script type="text/javascript">
+$select = $('#cars');
+    $versions = $('#versions');
+    $selectedCar = $('#garagebundle_compte_modelevoit');
+    $selectedVer = $('#garagebundle_compte_marquevoit');
+    $select.html('');
+            //iterate over the data and append a select option
+            var carsJSON = JSON.parse(cars);
+            /*console.log(carsJSON);*/
+            $.each(carsJSON.car, function(key, val){
+              $select.append('<option id="' + val.value + '">' + val.title + '</option>');
+            });
 
-    <ul>
-        <li>
-            <a href="{{ path('compte_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+     $select.click(function(){
+
+      $versions.html('');
+      var carName = $select.find(":selected").text();
+      $selectedCar.val(carName);
+      $.each(carsJSON.car, function(key, val){
+        if(carName == val.title){
+          $.each(val.models, function(key, val){
+          $versions.append('<option id="' + val.value + '">' + val.title + '</option>');
+            });
+          }
+    });
+});
+$versions.click(function(){
+        var carVer = $versions.find(":selected").text();
+        $selectedVer.val(carVer);
+
+});
+</script>
+{% endblock %}
+
 {% endblock %}

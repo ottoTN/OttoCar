@@ -1,7 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+  
+</div>
 
   <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="fa fa-id-card-o"></i></span>
@@ -37,7 +38,8 @@
                 <td>  {{ compte.marquevoit }} </td>
                 <td>  {{ compte.immatvoit }}</td>
                 <td>
-                <a class="btn btn-warning" href="{{ path('compte_edit', { 'id': compte.id }) }}">Edit</a>
+                <a data-toggle="modal" data-target="#editClient{{compte.id}}" class="btn btn-warning" href="{{ path('compte_edit', { 'id': compte.id }) }}">Edit</a>
+                <a data-toggle="modal" data-target="#delete{{compte.id}}" class="btn btn-danger" href="{{ path('compte_show', { 'id': compte.id }) }}">Delete</a>
                     <!-- <ul>
                         <li>
                             <a href="{{ path('compte_show', { 'id': compte.id }) }}">show</a>
@@ -48,6 +50,46 @@
                     </ul> -->
                 </td>
             </tr>
+
+<div class="modal editClientModal fade" id="editClient{{compte.id}}" tabindex="-1" role="dialog" aria-labelledby="editCurrentClient">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="editCompte">Edit account</h4>
+    </div>
+    <div class="modal-body">
+         <input type="hidden" id="id-client">
+        <input type="submit" class="btn btn-success" value="Edit" />
+       
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="modal deleteClientModal fade" id="delete{{compte.id}}" tabindex="-1" role="dialog" aria-labelledby="editCurrentClient">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="deleteCompte">Delete account</h4>
+    </div>
+    <div class="modal-body">
+       
+    </div>
+    <div class="modal-footer">
+
+    </div>
+  </div>
+</div>
+
+
+
         {% endfor %}
         </tbody>
             </table>
