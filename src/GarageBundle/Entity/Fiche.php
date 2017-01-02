@@ -67,7 +67,7 @@ class Fiche
     /**
      * @var string
      *
-     * @ORM\Column(name="statutfiche", type="string", length=30, nullable=false)
+     * @ORM\Column(name="statutfiche", type="string", length=30, nullable=true)
      */
     private $statutfiche;
     
@@ -75,7 +75,7 @@ class Fiche
      * @ManyToMany(targetEntity="GarageBundle\Entity\Piece")
      * @JoinTable(name="Fiche_Pieces",
      *      joinColumns={@JoinColumn(name="Fiche", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="Pieces", referencedColumnName="id", unique=true)}
+     *      inverseJoinColumns={@JoinColumn(name="Pieces", referencedColumnName="id", unique=true,nullable=true)}
      *      )
      */
     private $Pieces;

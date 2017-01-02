@@ -7,6 +7,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 
 
@@ -17,15 +20,24 @@ class FicheType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('datefiche')
-            ->add('prestation')
+        $builder
+            ->add('datefiche', DateTimeType::class, array(
+                'format' => \IntlDateFormatter::LONG,
+                'input' => 'datetime',
+                'data' => new \DateTime("now"),
+                'disabled' => true))
+
+            ->add('prestation',TextareaType::class)
             ->add('Client', EntityType::class, array(
                 'class' => 'GarageBundle:Compte',
                 'choice_label' => 'prenomprop'))
             ->add('Emp', EntityType::class, array(
                 'class' => 'GarageBundle:Employe',
                 'choice_label' => 'prenomemp'))
-            ->add('diagfiche')->add('solutionfiche')->add('typereparation')->add('statutfiche')
+            ->add('diagfiche',TextareaType::class)
+            ->add('solutionfiche',TextareaType::class)
+            ->add('typereparation',TextareaType::class)
+            ->add('statutfiche',HiddenType::class)
             ->add('Pieces', EntityType::class, array(
                 'class' => 'GarageBundle:Piece',
                 'choice_label' => 'refpiece',

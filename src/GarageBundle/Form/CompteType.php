@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 class CompteType extends AbstractType
 {
     /**
@@ -22,7 +22,7 @@ class CompteType extends AbstractType
         ->add('prenomprop')
         ->add('telprop')
         ->add('adresseprop')
-        ->add('mailprop')
+        ->add('mailprop',EmailType::class)
         ->add('modelevoit',HiddenType::class)
         ->add('marquevoit',HiddenType::class)
         ->add('immatvoit')
