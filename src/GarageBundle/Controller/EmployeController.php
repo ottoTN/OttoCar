@@ -53,7 +53,7 @@ class EmployeController extends Controller
             $em->persist($employe);
             $em->flush($employe);
 
-            return $this->redirectToRoute('employe_show', array('id' => $employe->getId()));
+            return $this->redirectToRoute('employe_indexmanager', array('id' => $employe->getId()));
         }
 
         return $this->render('employe/new.html.twig', array(
