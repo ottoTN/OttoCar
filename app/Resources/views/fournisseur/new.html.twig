@@ -1,16 +1,51 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Fournisseur creation</h1>
+<div class="row-fluid centre">
+        <div class="span10">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"> <i class="fa fa-handshake-o"></i> </span>
+                    <h5>New Provider</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                        <div class="control-group">
+                            <label class="control-label">Name :</label>
+                            <div class="controls">
+                                 {{ form_widget(form.nomfourn, {'attr': {'class': 'span6'}}) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Address :</label>
+                            <div class="controls">
+                                 {{ form_widget(form.adressefourn, {'attr': {'class': 'span6'}}) }}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Email :</label>
+                            <div class="controls">
+                                {{ form_widget(form.mailfourn, {'attr': {'class': 'span6'}}) }}
+                            </div>
+                          </div>
+                        <div class="control-group">
+                            <label class="control-label">Phone :</label>
+                            <div class="controls">
+                                  {{ form_widget(form.telfourn, {'attr': {'class': 'span6'}}) }}
+                            </div>
+                        </div>  
+                        <div class="control-group">
+                          <label class="control-label">Part (Type) :</label>
+                          <div class="controls">
+                             {{ form_widget(form.Piece, {'attr': {'class': 'span6'}}) }}
+                        </div><br> 
+                        <div class="form-actions">
+                            <center><button type="submit" class="btn btn-success">Create</button></center>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('fournisseur_index') }}">Back to the list</a>
-        </li>
-    </ul>
 {% endblock %}

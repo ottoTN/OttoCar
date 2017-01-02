@@ -90,7 +90,7 @@ class FicheController extends Controller
             $em->persist($fiche);
             $em->flush($fiche);
 
-            return $this->redirectToRoute('fiche_show', array('id' => $fiche->getId()));
+            return $this->redirectToRoute('fiche_indexreceptionnist', array('id' => $fiche->getId()));
         }
 
         return $this->render('fiche/new.html.twig', array(

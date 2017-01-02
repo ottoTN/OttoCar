@@ -5,6 +5,8 @@ namespace GarageBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PieceType extends AbstractType
 {
@@ -13,7 +15,12 @@ class PieceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('refpiece')->add('marquepiece')->add('prixpiece')->add('typepiece')->add('libellepiece')        ;
+        $builder
+        ->add('refpiece')
+        ->add('marquepiece',HiddenType::class)
+        ->add('prixpiece')
+        ->add('typepiece',HiddenType::class)
+        ->add('libellepiece',TextareaType::class);
     }
     
     /**

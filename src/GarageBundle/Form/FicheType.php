@@ -23,10 +23,9 @@ class FicheType extends AbstractType
         $builder
             ->add('datefiche', DateTimeType::class, array(
                 'format' => \IntlDateFormatter::LONG,
-                'input' => 'datetime',
-                'data' => new \DateTime("now"),
-                'disabled' => true))
+                'widget' => 'single_text',
 
+                'data' => new \DateTime("now")))
             ->add('prestation',TextareaType::class)
             ->add('Client', EntityType::class, array(
                 'class' => 'GarageBundle:Compte',

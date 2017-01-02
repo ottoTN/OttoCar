@@ -21,10 +21,10 @@
          </div>
          <div class="widget-content nopadding">
             {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-            <div class="control-group">
+            <div class="control-group" disabled>
                <label class="control-label">Create date :</label>
                <div class="controls">
-                  {{ form_widget(form.datefiche, {'attr': {'class': 'span4', 'style': 'display: inline-flex;'}}) }}
+                  {{ form_widget(form.datefiche, {'attr': {'class': 'span4', 'style': 'display: inline-flex;', 'readonly': 'true' }}) }}
                   {#   {{ form_widget(form.datefiche, {'attr': {'class': 'span6' }}) }} #}
                   {# <input type="text" class="span11" readonly placeholder="01/01/2000" /> #}
                </div>

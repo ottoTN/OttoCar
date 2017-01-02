@@ -1,8 +1,61 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  <!-- Modal -->
-      <div id="addFacture" class="modal fade" role="dialog">
+  
+      <div class="widget-box">
+         <div class="widget-title">
+            <span class="icon"><i class="fa fa-file-text-o"></i></span>
+            <h5>All Files</h5>
+         </div>
+         <div class="widget-content nopadding">
+            <table class="table table-bordered data-table">
+        <thead>
+            <tr>
+                     <th>Date</th>
+                     <th>Client</th>
+                     <th>Worker</th>
+                     <th>Problem Description</th>
+                     <th>Diagnocis</th>
+                     <th>Solution</th>
+                     <th>Repair Type</th>
+                     <th>Cost</th>
+                     <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fiche in fiches %}
+            <tr>
+                <td>{{ fiche.datefiche|date('d/m/Y') }}</td>
+                <td>{{ fiche.Client.prenomprop }}</td>
+                <td>{{ fiche.Emp.prenomemp }}</td>
+                <td>{{ fiche.prestation }}</td>
+                <td>{{ fiche.diagfiche }}</td>
+                <td>{{ fiche.solutionfiche }}</td>
+                <td>{{ fiche.typereparation }}</td>
+                 <td><button type="button" class="btn btn-link" data-toggle="modal" data-target="#addFacture{{fiche.id}}" href="{{ path('facture_new', { 'id': fiche.id }) }}">NEEDS FIX</button></td>
+                     <td>
+                        <!-- Rounded switch -->
+                        <input readonly type="checkbox" disabled data-toggle="toggle" data-on="Paid" data-off="Unpaid" data-onstyle="success" data-width="50" data-height="25" /> 
+                     </td>
+               <!--  <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('fiche_show', { 'id': fiche.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fiche_edit', { 'id': fiche.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td> -->
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+         </div>
+      </div>
+      
+      <!-- Modal -->
+      <div id="addFacture{{fiche.id}}" class="modal fade" role="dialog">
       <div class="modal-dialog">
          <!-- Modal content-->
          <div class="modal-content">
@@ -146,57 +199,6 @@
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                </div>
             </div>
-         </div>
-      </div>
-      <div class="widget-box">
-         <div class="widget-title">
-            <span class="icon"><i class="fa fa-file-text-o"></i></span>
-            <h5>All Files</h5>
-         </div>
-         <div class="widget-content nopadding">
-            <table class="table table-bordered data-table">
-        <thead>
-            <tr>
-                     <th>Date</th>
-                     <th>Client</th>
-                     <th>Worker</th>
-                     <th>Problem Description</th>
-                     <th>Diagnocis</th>
-                     <th>Solution</th>
-                     <th>Repair Type</th>
-                     <th>Cost</th>
-                     <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for fiche in fiches %}
-            <tr>
-                <td>{{ fiche.datefiche|date('d/m/Y') }}</td>
-                <td>{{ fiche.Client.prenomprop }}</td>
-                <td>{{ fiche.Emp.prenomemp }}</td>
-                <td>{{ fiche.prestation }}</td>
-                <td>{{ fiche.diagfiche }}</td>
-                <td>{{ fiche.solutionfiche }}</td>
-                <td>{{ fiche.typereparation }}</td>
-                 <td><button type="button" class="btn btn-link" data-toggle="modal" data-target="#addFacture">NEEDS FIX</button></td>
-                     <td>
-                        <!-- Rounded switch -->
-                        <input readonly type="checkbox" disabled data-toggle="toggle" data-on="Paid" data-off="Unpaid" data-onstyle="success" data-width="50" data-height="25" /> 
-                     </td>
-               <!--  <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('fiche_show', { 'id': fiche.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('fiche_edit', { 'id': fiche.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td> -->
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
          </div>
       </div>
 {% endblock %}

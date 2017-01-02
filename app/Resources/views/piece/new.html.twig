@@ -1,16 +1,55 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Piece creation</h1>
+ <div class="row-fluid centre">
+        <div class="span10">
+            <div class="widget-box">
+                <div class="widget-title"> <span class="icon"> <i class="fa fa-wrench"></i> </span>
+                    <h5>New Part</h5>
+                </div>
+                <div class="widget-content nopadding">
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}  
+                        <div class="control-group">
+                            <label class="control-label">Reference :</label>
+                            <div class="controls">
+                               {{ form_widget(form.refpiece, {'attr': {'class' : 'span6'} } ) }}
+                            </div>
+                        </div>
+                         <div class="control-group">
+                            <label class="control-label">Engine brand :</label>
+                            <div class="controls">
+                                <select id="cars" required></select>
+                                
+                            </div>
+                        </div>
+                        <div class="control-group">
+                          <label class="control-label">Price</label>
+                          <div class="controls">
+                            <div class="input-append">
+                               {{ form_widget(form.prixpiece, {'attr': {'class' : 'span6'} } ) }}
+                              <span class="add-on">TND</span> </div>
+                          </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Type :</label>
+                            <div class="controls">
+                                <select id="versions" required></select>
+                                
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Wording :</label>
+                            <div class="controls">
+                               {{ form_widget(form.libellepiece, {'attr': {'class' : 'span6'} } ) }}
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <center><button type="submit" class="btn btn-success">Create</button></center>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('piece_index') }}">Back to the list</a>
-        </li>
-    </ul>
 {% endblock %}

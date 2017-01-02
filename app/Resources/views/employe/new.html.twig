@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Employe creation</h1>
 <div class="row-fluid centre">
         <div class="span10">
             <div class="widget-box">
@@ -74,9 +73,9 @@
         <center><input type="submit" class="btn btn-success" value="Create" /></center>
     {{ form_end(form) }}
 
-    <ul>
+{#     <ul>
         <li>
             <a href="{{ path('employe_index') }}">Back to the list</a>
         </li>
-    </ul>
+    </ul> #}
 {% endblock %}
