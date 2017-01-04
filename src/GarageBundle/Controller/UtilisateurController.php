@@ -5,6 +5,8 @@ namespace GarageBundle\Controller;
 use GarageBundle\Entity\Utilisateur;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
 
 /**
  * Utilisateur controller.
@@ -12,6 +14,26 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class UtilisateurController extends Controller
 {
+    /**
+   * @Route("/login", name="login")
+   */
+  public function loginAction(Request $request)
+  {
+    $user = $this->getUser();
+    if ($user instanceof UserInterface) {
+      return $this->redirectToRoute('homepage');
+    }
+
+    /** @var AuthenticationException $exception */
+    $exception = $this->get('security.authentication_utils')
+      ->getLastAuthenticationError();
+
+    return $this->render('login.html.twig', [
+      'error' => $exception ? $exception->getMessage() : NULL,
+    ]);
+  }
+
+
     /**
      * Lists all utilisateur entities.
      *
